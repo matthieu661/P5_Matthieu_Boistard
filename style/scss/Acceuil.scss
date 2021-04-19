@@ -1,0 +1,108 @@
+main {
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+.Entete {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    border: 1px solid #f4e9f2 ;
+    border-radius: 20px;
+    margin-top: 15px;
+    h2 {
+        margin-top: 20px;
+        margin-left: 5px;
+        .surligner {
+            text-decoration: underline;
+            font-size:1em;
+        }
+    }
+    p {
+        font-size:0.7em;
+        font-style: italic;
+        margin-bottom: 20px;
+        margin-left: 8px;
+    }
+}
+#containerJs {
+    width : 100%;
+    margin : auto;
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+        align-items: center;
+        li{
+            margin-bottom: 20px;
+            height: 230px ;
+            width: 320px;
+            border: 1px solid #f4e9f2 ;
+            
+        }
+    }
+}
+
+.Liens {
+    height : 100%;
+    width : 100%;
+    display: flex;
+    flex-direction: column ;
+    text-decoration: none;
+    color : black;
+}
+
+
+
+li .ImageJS {
+        width: auto;
+        height: 80%;
+        border : 1px solid #f4e9f2 ;
+        .ImgJS {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+}
+
+li .InfosJS {
+        width: auto;
+        height: 20%;
+        border: 1px solid black;
+        display: flex;
+        .PrixJS {
+            width : 50% ;
+            height: 100%;
+            border : black solid 1px;
+            .bullePrix{
+                position: relative;
+                width : 70px ;
+                background-color: #f4e9f2;
+                z-index: 1;
+                left: -30px;
+                top: -50px;
+                border-radius: 15px;
+                text-align: center;
+                box-shadow : 2px 2px 2px purple;
+
+            }    
+        }
+        .NomJS {
+            width : 50% ;
+            height: 100%;
+            border : black solid 1px;    
+            }
+}
+
+.PriceNumber, .nomAppareilPhoto {
+    text-align: center;
+    margin-top: 10px;
+}

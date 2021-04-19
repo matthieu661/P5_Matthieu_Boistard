@@ -1,0 +1,107 @@
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.Entete {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #f4e9f2;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+.Entete h2 {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+.Entete h2 .surligner {
+  text-decoration: underline;
+  font-size: 1em;
+}
+.Entete p {
+  font-size: 0.7em;
+  font-style: italic;
+  margin-bottom: 20px;
+  margin-left: 8px;
+}
+
+#containerJs {
+  width: 100%;
+  margin: auto;
+}
+#containerJs ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  align-items: center;
+}
+#containerJs ul li {
+  margin-bottom: 20px;
+  height: 230px;
+  width: 320px;
+  border: 1px solid #f4e9f2;
+}
+
+.Liens {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+}
+
+li .ImageJS {
+  width: auto;
+  height: 80%;
+  border: 1px solid #f4e9f2;
+}
+li .ImageJS .ImgJS {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+li .InfosJS {
+  width: auto;
+  height: 20%;
+  border: 1px solid black;
+  display: flex;
+}
+li .InfosJS .PrixJS {
+  width: 50%;
+  height: 100%;
+  border: black solid 1px;
+}
+li .InfosJS .PrixJS .bullePrix {
+  position: relative;
+  width: 70px;
+  background-color: #f4e9f2;
+  z-index: 1;
+  left: -30px;
+  top: -50px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 2px 2px 2px purple;
+}
+li .InfosJS .NomJS {
+  width: 50%;
+  height: 100%;
+  border: black solid 1px;
+}
+
+.PriceNumber, .nomAppareilPhoto {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=Acceuil.css.map */
