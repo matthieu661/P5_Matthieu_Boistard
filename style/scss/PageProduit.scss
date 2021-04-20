@@ -25,6 +25,7 @@ main {
         height: auto;
         .ImgProduit {
             width: 100%;
+            border-radius: 20px;
         }
         
 
@@ -53,5 +54,27 @@ main {
     .PrixduProduitJs {
         margin-right: 30px;
         
+    }
+}
+#Panier{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.FlexPanier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4e9f2 ;
+    width : 100%;
+    border-radius: 20px;
+    img {
+        margin-right: 50px;
+        width : 50px;
+        height : 50px;
+        
+    }
+    p{
+        margin-left: 50px;
     }
 }

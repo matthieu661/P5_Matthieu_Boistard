@@ -27,6 +27,7 @@ main .NomProduit {
 }
 #containerProduit .containerJsProduit .ImgProduit {
   width: 100%;
+  border-radius: 20px;
 }
 #containerProduit .selectJS {
   display: flex;
@@ -47,6 +48,29 @@ main .NomProduit {
 }
 #PrixBtnProduit .PrixduProduitJs {
   margin-right: 30px;
+}
+
+#Panier {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.FlexPanier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4e9f2;
+  width: 100%;
+  border-radius: 20px;
+}
+.FlexPanier img {
+  margin-right: 50px;
+  width: 50px;
+  height: 50px;
+}
+.FlexPanier p {
+  margin-left: 50px;
 }
 
 /*# sourceMappingURL=PageProduit.css.map */
