@@ -44,11 +44,39 @@ main {
   padding-left: 0;
   align-items: center;
 }
+@media (min-width: 651px) and (max-width: 1150px) {
+  #containerJs ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (min-width: 1151px) {
+  #containerJs ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 #containerJs ul li {
   margin-bottom: 20px;
   height: 230px;
   width: 320px;
   border: 1px solid #f4e9f2;
+}
+@media (min-width: 651px) and (max-width: 1150px) {
+  #containerJs ul li {
+    margin-left: 20px;
+    height: 260px;
+    width: 350px;
+  }
+}
+@media (min-width: 1151px) {
+  #containerJs ul li {
+    margin-left: 20px;
+    height: 300px;
+    width: 390px;
+  }
 }
 
 .Liens {
