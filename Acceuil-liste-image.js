@@ -7,9 +7,8 @@ window.onload = function () {
     request.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             let response = JSON.parse(this.responseText);
-            console.log(response);
             let data = response;
-            console.log(data.length);
+            
             // ici boucle : pour chaque iteration presente dans "data"
             for (let i = 0; i < data.length; i++) {
                 

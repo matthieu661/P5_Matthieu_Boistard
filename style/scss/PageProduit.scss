@@ -1,0 +1,57 @@
+main {
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    .NomProduit {
+        margin-top: 30px;
+        width: 100%;
+        height: 50px;
+        border: 1px solid #f4e9f2 ;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+}
+#containerProduit {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    .containerJsProduit {
+        width: 100%;
+        height: auto;
+        .ImgProduit {
+            width: 100%;
+        }
+        
+
+
+    }
+    .selectJS {
+        display: flex;
+
+        height: 30px ;
+        width: 100%;
+        margin-top: 20px;
+        background-color: #f4e9f2 ;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+
+}
+#PrixBtnProduit {
+    display: flex;
+    margin-top:15px;
+    justify-content: center;
+    align-items: center;
+    .PrixduProduitJs {
+        margin-right: 30px;
+        
+    }
+}
