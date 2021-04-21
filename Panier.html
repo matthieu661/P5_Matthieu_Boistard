@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="/style/header.css">
+    <link rel="stylesheet" href="/style/Panier.css">
+    <!--<link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Montserrat&display=swap" rel="stylesheet">
+
+
+
+    <title>Orinoco marchand : Produit</title>
+</head>
+<body>
+    <header>
+        <div id="logo-Orinoco" class="flex-container"><img src="/images/Logo/orinoco.1e926263.webp" alt="Logo de Orinoco"></div>
+        <h1>  Web-marchand depuis 1980'</h1>
+        <p class="titre-header">" Qualité et Service ! "</p>
+    </header>
+    <main>
+        <div id="CTitrePagePanier">
+            <h1 id="TitrePagePanier"></h1>
+        </div>
+        <button type="button" id="btnFormulaire">Poursuivre vers Paiement</button>
+        <div id="formeHiden" style="display: none;">
+            <form id="formulaire" class="flexy">
+                <label class="boxlabel" for="VotreNom">Votre nom</label>
+                <input class="box" id="VotreNom" type="text" name="nom">
+                <label class="boxlabel" for="VotrePrenom">Votre prenom</label>
+                <input class="box" id="VotrePrenom" type="text" name="prenom">
+                <label class="boxlabel" for="email">Votre e-mail</label>
+                <input class="box" id="email" type="email">
+                <label class="boxlabel" for="tel">Votre numéro de telephone</label>
+                <input class="box" id="tel" type="tel">
+                <label class="boxlabel" for="adresseNum">Votre numero d'adresse</label>
+                <input class="box" id="adresseNum" type="number" name="asdresse">
+                <label class="boxlabel" for="TypeVoie">Type de voie</label>
+                <select id="TypeVoie" name="TypedeVoie">
+                    <option value="Avenue">Avenue</option>
+                    <option value="Boulevard">Boulevard</option>
+                    <option value="rue">rue</option>
+                    <option value="chemin">chemin</option>
+                    <option value="autre">autre</option>
+                </select>
+                <label class="boxlabel" for="NomVoie">le nom de voie</label>
+                <input class="box" id="NomVoie" type="text" name="nomdeVoie">
+                <p>Moyen de paiement</p>
+                <label class="boxlabel" for="CB">carte bancaire</label>
+                <input class="box" id="CB" type="text">
+                <label class="boxlabel" for="DateExp">date expiration</label>
+                <p class="box"> "__/__"</p>
+                <input class="box" id="DateExp" type="text" name=dateExp>                           
+                <button id="Envoie" type="submit">Valider</button>
+            </form>
+        </div>
+
+
+    </main>
+</body>
+<script src="/Panier.js"></script>
+
+</html>
+

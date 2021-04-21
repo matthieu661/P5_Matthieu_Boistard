@@ -1,0 +1,115 @@
+#CTitrePagePanier {
+  width: 100%;
+  height: auto;
+  background-color: #f4e9f2;
+  border-radius: 20px;
+}
+
+.h1PagePanier {
+  align-items: center;
+  margin-top: 15px;
+  font-weight: bold;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+}
+.h1PagePanier .ArticlesPanierContainer {
+  width: 95%;
+  height: 80px;
+  border: 1px solid black;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 20px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+}
+.h1PagePanier .ArticlesPanierContainer .ImageArtPanier {
+  width: 75px;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+.h1PagePanier .ArticlesPanierContainer .ImageArtPanier .imgRecp {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.h1PagePanier .ArticlesPanierContainer .OptionArtPanier {
+  flex-grow: 1;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+.h1PagePanier .ArticlesPanierContainer .OptionArtPanier .OptionX {
+  font-size: 0.7em;
+  text-align: center;
+  margin-top: 5px;
+}
+.h1PagePanier .ArticlesPanierContainer .PrixArtPanier {
+  width: 100px;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.h1PagePanier .ArticlesPanierContainer .PrixArtPanier .PrixChoix {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.PrixTTPanier {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+}
+.PrixTTPanier .TextePTT {
+  height: 100%;
+  width: 60%;
+  border: 1px solid black;
+  text-align: center;
+}
+.PrixTTPanier .calculPTotal {
+  height: 100%;
+  flex-grow: 1;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#formeHiden {
+  position: absolute;
+  left: 10px;
+  top: 100px;
+  right: 10px;
+  z-index: 1;
+  background-color: #d33cb7;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+#formeHiden .flexy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+#formeHiden .flexy .box {
+  width: 90%;
+  height: 20px;
+  margin-top: 15px;
+}
+#formeHiden .flexy .boxlabel {
+  width: 90%;
+  align-items: center;
+}
+
+/*# sourceMappingURL=Panier.css.map */
