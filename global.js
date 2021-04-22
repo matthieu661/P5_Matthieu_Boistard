@@ -1,3 +1,3 @@
 
-export let Article = [], Globaltest;
+
 

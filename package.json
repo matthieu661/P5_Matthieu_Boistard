@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "sass": "sass --watch ./style/scss/header.scss:./style/header.css ./style/scss/Acceuil.scss:./style/Acceuil.css ./style/scss/Panier.scss:./style/Panier.css "
+    "sass": "sass --watch ./style/scss/header.scss:./style/header.css ./style/scss/Acceuil.scss:./style/Acceuil.css ./style/scss/Panier.scss:./style/Panier.css ./style/scss/confirmation.scss:./style/confirmation.css"
   },
   "author": "",
   "license": "ISC",
