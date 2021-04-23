@@ -6,7 +6,7 @@ window.onload = function () {
 
     let linkPanierAcc = document.createElement('a');
     document.getElementById("header").appendChild(linkPanierAcc);
-    linkPanierAcc.href = "Panier.html"
+    linkPanierAcc.href = "/PageHTML/Panier.html"
         let panierAcc = document.createElement('div');
         linkPanierAcc.appendChild(panierAcc);
         panierAcc.classList.add("menuAcc");
