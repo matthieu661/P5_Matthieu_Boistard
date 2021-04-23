@@ -27,6 +27,7 @@
         <div id="CTitrePagePanier">
             <h1 id="TitrePagePanier"></h1>
         </div>
+        <button type="button" id="clear" >Vider le Panier</button>
         <button type="button" id="btnFormulaire">Poursuivre vers Paiement</button>
         <div id="formeHiden" style="display: none;">
             <form id="formulaire" class="flexy">
@@ -36,25 +37,14 @@
                 <input class="box" id="VotrePrenom" type="text" name="prenom">
                 <label class="boxlabel" for="email">Votre e-mail</label>
                 <input class="box" id="email" type="email">
-                <label class="boxlabel" for="tel">Votre numéro de telephone</label>
-                <input class="box" id="tel" type="tel">
-                <label class="boxlabel" for="adresseNum">Votre numero d'adresse</label>
-                <input class="box" id="adresseNum" type="number" name="asdresse">
-                <label class="boxlabel" for="TypeVoie">Type de voie</label>
-                <select id="TypeVoie" name="TypedeVoie">
-                    <option value="Avenue">Avenue</option>
-                    <option value="Boulevard">Boulevard</option>
-                    <option value="rue">rue</option>
-                    <option value="chemin">chemin</option>
-                    <option value="autre">autre</option>
-                </select>
-                <label class="boxlabel" for="NomVoie">le nom de voie</label>
-                <input class="box" id="NomVoie" type="text" name="nomdeVoie">
+                <label class="boxlabel" for="adresseNum">Votre adresse</label>
+                <input class="box" id="adresseNum" type="text" name="asdresse">
+                <label class="boxlabel" for="city">ville</label>
+                <input class="box" id="city" type="text" name="city">
                 <p>Moyen de paiement</p>
                 <label class="boxlabel" for="CB">carte bancaire</label>
                 <input class="box" id="CB" type="text">
-                <label class="boxlabel" for="DateExp">date expiration</label>
-                <p class="box"> "__/__"</p>
+                <label class="boxlabel" for="DateExp" placeholder="__/__">date expiration</label>
                 <input class="box" id="DateExp" type="text" name=dateExp>                           
                 <button id="Envoie" type="button">Valider</button>
             </form>

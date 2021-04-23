@@ -87,13 +87,15 @@
   top: 100px;
   right: 10px;
   z-index: 1;
-  background-color: #d33cb7;
+  background-color: #F4E9F2;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
+  height: 80%;
+  opacity: 0.9;
 }
 #formeHiden .flexy {
   display: flex;

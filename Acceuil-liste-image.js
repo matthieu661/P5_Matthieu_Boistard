@@ -2,6 +2,30 @@
 
 
 window.onload = function () {
+    // menu TEST 
+
+    let linkPanierAcc = document.createElement('a');
+    document.getElementById("header").appendChild(linkPanierAcc);
+    linkPanierAcc.href = "Panier.html"
+        let panierAcc = document.createElement('div');
+        linkPanierAcc.appendChild(panierAcc);
+        panierAcc.classList.add("menuAcc");
+            let imgAcc = document.createElement('img');
+            imgAcc.src = "/images/Logo/icopanier.svg"
+            panierAcc.appendChild(imgAcc);
+
+    // image Orinoco TEST 
+
+    let imgOrinoco = document.createElement("img");
+    imgOrinoco.src = "/images/Logo/Capture.png";
+    document.getElementById("h2title").appendChild(imgOrinoco);
+    imgOrinoco.classList.add("imgOrinoco");
+
+    
+
+
+
+
 
     let request = new XMLHttpRequest();
     request.onreadystatechange = function() {

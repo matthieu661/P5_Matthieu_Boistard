@@ -24,6 +24,15 @@ window.onload = function () {
     // création du sous-container qui acceuiles l'article du panier X le nombre dans panier
 
 
+     // TEST SUPPRESSION ITEM 
+        // 1 vider TOUT !
+        document.getElementById("clear").addEventListener("click", function(){
+            localStorage.clear();
+            document.location.reload();
+        })
+
+
+     // /////////////////////
     for (let i = 0; i < valueurJSON.length; i++) { // pour chaque itération object dans le tableau
 
         let articlesDuPanier = document.createElement("div"); // création de la div
@@ -46,7 +55,7 @@ window.onload = function () {
         let optionChoisie = document.createElement("p")
         textOptionChoisie = valueurJSON[i].option;
         let nameModele = valueurJSON[i].name;
-        optionChoisie.innerHTML = nameModele + "</br> avec optique de :</br> " + textOptionChoisie
+        optionChoisie.innerHTML = nameModele + "</br> avec optique de :</br> " + textOptionChoisie;
         optionArticlePanier.appendChild(optionChoisie);
         optionChoisie.classList.add("OptionX");
 
@@ -99,6 +108,10 @@ window.onload = function () {
 
     let envoyerData = document.getElementById("Envoie");
     envoyerData.addEventListener("click", recupETenvoie);
+    
+    
+
+    
 
     let client = []     // tableau a incrementer pour le local storage 
 
@@ -106,10 +119,8 @@ window.onload = function () {
         let prenom = document.getElementById("VotrePrenom").value;
         let nom = document.getElementById("VotreNom").value;
         let email = document.getElementById("email").value;
-        let tel = document.getElementById("tel").value;
         let adresseNum = document.getElementById("adresseNum").value;
-        let typeVoie = document.getElementById("TypeVoie").value;
-        let nomdeVoie = document.getElementById("NomVoie").value;
+        let city = document.getElementById("city").value;
         let CB = document.getElementById("CB").value;
         let dateExp = document.getElementById("DateExp").value;
 
@@ -117,10 +128,8 @@ window.onload = function () {
             prenomData: prenom,  
             nomData: nom,
             emailData: email,
-            telData: tel,
             adressNumData: adresseNum,
-            typeVoieData: typeVoie,
-            nomDeVoieData: nomdeVoie,
+            cityData: city,
             CBdata: CB,
             DateExpData: dateExp
         }
@@ -164,8 +173,24 @@ window.onload = function () {
                 }
             })
         }
+        const data2 ={
+            given_id: {
+                _id : "010120101",
+                name : prenom +" "+ nom
+
+            }
+        }  
         send(); // lance la function qui lance la requete .. 
 
+
+        // redirige vers la page au click sur button
+        envoyerData.addEventListener("click", function() {
+            //setTimeout(function(){window.open("confirmation.html")},3000);  // parfois bloqué par anti-pop-up / ouvre une new page
+            setTimeout(function(){document.location.href= "confirmation.html"},3000); // meilleur solution, n'ouvre pas de popup ! 
+        }) 
+
+
+        
         
     }
 }
@@ -184,3 +209,15 @@ window.onload = function () {
         //let recupValeur2 = localStorage.getItem("clientel"); // NE PAS OUBLIER les "" la clé c'est un string tamereputin azerzq rfvlesd 2h pour asdfqesr
         //let valueurJSON2 = JSON.parse(recupValeur2) // retransformation en JSON
         //console.log(valueurJSON2)
+
+
+        //send2();
+        /**function getting () {
+            fetch("http://localhost:3000/api/cameras/:_id")
+                .then(function(response){
+                    console.log(JSON.stringify(response))
+                    //let data6 = JSON.stringify(response)
+                    //console.log(data6.order)
+                })
+        }
+        getting();*/
