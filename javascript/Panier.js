@@ -186,7 +186,7 @@ window.onload = function () {
         // redirige vers la page au click sur button
         envoyerData.addEventListener("click", function() {
             //setTimeout(function(){window.open("confirmation.html")},3000);  // parfois bloqué par anti-pop-up / ouvre une new page
-            setTimeout(function(){document.location.href= "confirmation.html"},3000); // meilleur solution, n'ouvre pas de popup ! 
+            setTimeout(function(){document.location.href= "/PageHTML/confirmation.html"},3000); // meilleur solution, n'ouvre pas de popup ! 
         }) 
 
 

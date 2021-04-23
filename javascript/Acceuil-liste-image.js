@@ -43,7 +43,7 @@ window.onload = function () {
                 let aLien = document.createElement('a') // crée un objet "<a></a>" dans le html
                 
                 console.log("Produit.html"+"?"+data[i]._id);
-                aLien.href = "Produit.html"+"?"+data[i]._id; // ajoute l'attribut "href" a l'objet <a> créé précedemment et le defini.  
+                aLien.href = "/PageHTML/Produit.html"+"?"+data[i]._id; // ajoute l'attribut "href" a l'objet <a> créé précedemment et le defini.  
                                                             // dessus  Lien vers page Html(Produit.html)+ "id" récuperé dans "data" ("?"" pour passer l'id a l'autre page)
                 aLien.classList.add("Liens") // ajoute une classe à l'objet <a>
                 li.appendChild(aLien); // le rajoute au node "li" en tant qu'enfant

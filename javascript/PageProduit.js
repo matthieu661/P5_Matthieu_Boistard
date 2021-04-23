@@ -196,7 +196,7 @@ window.onload = function () {
             // Link vers Panier Avec une Image
             let LinkPaniersJS = document.createElement("a");
             LienPanier.appendChild(LinkPaniersJS);
-            LinkPaniersJS.href = "Panier.html";                 // LIEN VERS PAGE PANIER                                   
+            LinkPaniersJS.href = "/PageHTML/Panier.html";                 // LIEN VERS PAGE PANIER                                   
             document.getElementById("Panier").appendChild(ContainerPanier);
             let ImagePanier = document.createElement("img");
             ImagePanier.src = "/images/Logo/PanierOrinoco.png";
