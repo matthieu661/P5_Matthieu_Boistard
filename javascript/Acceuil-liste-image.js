@@ -23,15 +23,26 @@ window.onload = function () {
 
     
     
+    getProduits = () => {
+        return new Promise((ABC) => {
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                    ABC(JSON.parse(this.responseText));
+                }
+            }
+            request.open("GET", "http://localhost:3000/api/cameras");
+            request.send();
+        });
+    };
 
 
 
+    async function allProduits(){
 
-    let request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            let response = JSON.parse(this.responseText);
-            let data = response;
+        let data = await getProduits()
+    
+    
             
             // ici boucle : pour chaque iteration presente dans "data"
             for (let i = 0; i < data.length; i++) {
@@ -89,12 +100,11 @@ window.onload = function () {
 
 
                 document.getElementById("Container-listeJS").appendChild(li);
-               }
-        }
+               };
+        
     };
+    allProduits();
     
-    request.open("GET", "http://localhost:3000/api/cameras");
-    request.send();
     
 
 

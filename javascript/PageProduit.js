@@ -1,11 +1,28 @@
 let number = 0;
 window.onload = function () {
 
-    let request2 = new XMLHttpRequest();
-    request2.onreadystatechange = function () {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            let response = JSON.parse(this.responseText);
-            let dataProduit = response;
+
+
+
+
+    getProduits = () => {
+        return new Promise((ABC) => {
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+                    ABC(JSON.parse(this.responseText));
+                }
+            }
+            request.open("GET", "http://localhost:3000/api/cameras");
+            request.send();
+        });
+    };
+
+
+
+    async function allProduits(){
+
+        let dataProduit = await getProduits()
 
 
 
@@ -205,8 +222,7 @@ window.onload = function () {
             LinkPaniersJS.classList.add("FlexPanier");
             ContainerPanier.classList.add("FlexPanier");
         }
-    }
-    request2.open("GET", "http://localhost:3000/api/cameras");
-    request2.send();
+        allProduits()
+    
 }
 

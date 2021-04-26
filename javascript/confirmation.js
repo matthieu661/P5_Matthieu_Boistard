@@ -7,15 +7,24 @@ window.onload = function () {
 
     // créer un <p> pour afficher le numero de commande sous le <h1>  
 
-    let nomClient; // Recuperer donnée SERVEUR A FAIRE
-    let numeroDeCommande; // Recuperer donnée SERVEUR A FAIRE
-    let commandPTT; // Recuperer donnée SERVEUR A FAIRE
+    let nomClient = window.location.search.substr(46);
+    console.log(nomClient);
+    nomClient = nomClient.replace('_', ' ')
+
+  
+    let numeroDeCommande = window.location.search.substr(4,36);// 
+             console.log(numeroDeCommande); // OK
+
+
+    let commandPTT = JSON.parse(localStorage.Prix)
+    console.log(commandPTT)
+     // Recuperer donnée SERVEUR A FAIRE
 
 
 
     let numeroCommande = document.createElement("p");
     document.getElementById("TexteConfirmation").appendChild(numeroCommande);  //// A COMPLETER AVEC LES DONNEES DU SERVEUR
-    numeroCommande.textContent = "nomClient" + " votre bon de commande est le :" + "numeroDeCommande" + "commandePTT"; // = "nomClient"... = variable pas encore defini
+    numeroCommande.innerHTML = nomClient +" " + " votre bon de commande est le :"+" " + numeroDeCommande + "" + "<br> le montant Total de votre commande est de :" +" "+commandPTT+ "¥"; // = "nomClient"... = variable pas encore defini
     numeroCommande.classList.add("BOX2"); // ajout class pour scss
 
     // Création d'un conteneur de recapitulation - enfant du <h1>

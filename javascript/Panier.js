@@ -88,7 +88,7 @@ window.onload = function () {
         let calculduTotal = valueurJSON[i].prix;
         //console.log(typeof (calculduTotal))
         TT += calculduTotal;
-        calculPTT.textContent = TT + "¥";
+        calculPTT.textContent = TT + "¥";    // TT = variable prix total
     }
     calculPTT.classList.add("calculPTotal");
 
@@ -162,63 +162,130 @@ window.onload = function () {
             products
         }
 
-        function send() {
-            console.log(data);
-            // test REQUET
-            fetch("http://localhost:3000/api/cameras/order", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json"
+    // constante pour les regex 
+    const regexPrenom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/ ;   // minetMAJ--longueur:2-101--nom composé ( - ) ou "espace" , maj ou min pour les accents voir (https://www.regextester.com/106533)
+    const regexNom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;
+    const regexEmail = /^([a-zA-Z0-9\-\_\.])+@+([a-zA-Z0-9]{3,15})+.+([a-zA-Z]{2,3})$/ ;
+    const regexAdresse = /^([1-9]*)+([\ ]?)+([a-zA-Z\ ]{1,10})+([\ ]?)+([a-zA-Z\'\ \u00C0-\u00FF]{2,60})$/ ; 
+    const regexVille = /^([a-zA-Z]{2,59})$/ ;
+
+
+         postProduits = () => {
+            return new Promise((ABC) => {
+                let request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
+                        ABC(JSON.parse(this.responseText));
+                        let reponse = this.responseText  
+                        console.log(reponse); 
+                        // ici un if formualire OK
+                        
+                            let testPrenom = document.getElementById("VotrePrenom").value;
+                            console.log(testPrenom)
+                            console.log(typeof(testPrenom))
+                            let resPrenom = regexPrenom.test(testPrenom)
+                            console.log(resPrenom)
+                            
+                            if ( resPrenom == true) {
+                                document.getElementById("VotrePrenom").style.backgroundColor = "#00ff0080"; 
+                                let testNom = document.getElementById("VotreNom").value;
+                                let resNom = regexNom.test(testNom);
+                                //console.log(resNom)
+                                
+                                if ( resNom == true ) {
+                                    document.getElementById("VotreNom").style.backgroundColor = "#00ff0080";
+                                    let testEmail = document.getElementById("email").value;
+                                    let resEmail = regexEmail.test(testEmail);
+                                    console.log(resEmail)
+                                    if ( resEmail == true){
+                                        document.getElementById("email").style.backgroundColor = "#00ff0080";
+                                        let testAddresse = document.getElementById("adresseNum").value
+                                        let resAddresse = regexAdresse.test(testAddresse);
+                                        console.log(resAddresse)
+                                        if ( resAddresse == true){
+                                            document.getElementById("adresseNum").style.backgroundColor = "#00ff0080";
+                                            let testVille = document.getElementById("city").value ;
+                                            let resVille = regexVille.test(testVille);
+                                            if ( resVille == true){
+                                                document.getElementById("city").style.backgroundColor = "#00ff0080";
+                                                //let Loader = document.createElement("div");
+                                                //document.getElementById("formeHiden").appendChild(Loader);
+                                                //Loader.classList.add("loader");
+                                                //console.log(Loader.classList)
+                                                //loader.textContent = " test"
+                                                //setTimeout(function(){document.location.href= "../PageHTML/confirmation.html"},3000);
+                                                let recIdclient = (JSON.parse(reponse));
+                                                idClient = recIdclient.orderId
+                                                console.log(idClient)
+                                                console.log(testPrenom)
+                                                setTimeout(function(){document.location.href= "../PageHTML/confirmation.html"+"?id="+idClient+"?name="+testPrenom+"_"+testNom},3000);
+                                                console.log(TT)
+                                                let retourTT = JSON.stringify(TT);
+                                                localStorage.Prix = retourTT
+                                                console.log(localStorage.Prix)
+
+                                            }else {
+                                                let refuser = document.createElement("p");
+                                                document.getElementById("formulaire").appendChild(refuser);
+                                                refuser.textContent = " veuillez saisir votre Ville ( ex : Dublin ) " 
+                                                console.log("dont work")}
+                                        }else {
+                                            let refuser = document.createElement("p");
+                                            document.getElementById("formulaire").appendChild(refuser);
+                                            refuser.textContent = " veuillez saisir votre adresse ( ex : 13 rue du moulin chinois) " 
+                                            console.log("dont work")}
+    
+                                    }else {
+                                        let refuser = document.createElement("p");
+                                        document.getElementById("formulaire").appendChild(refuser);
+                                        refuser.textContent = " veuillez saisir votre Email ( ex : xxxx@aaa.dd) " 
+                                        console.log("dont work")}
+
+                                }else {
+                                    let refuser = document.createElement("p");
+                                    document.getElementById("formulaire").appendChild(refuser);
+                                    refuser.textContent = " veuillez saisir votre Nom " 
+                                    console.log("dont work")}
+                                
+                                //document.location.href= "../PageHTML/confirmation.html";
+                            }
+                            else {
+                                let refuser = document.createElement("p");
+                                document.getElementById("formulaire").appendChild(refuser);
+                                refuser.textContent = " veuillez saisir votre prenom"
+                                console.log("dont work")}
+                    }if (this.readyState == XMLHttpRequest.DONE && this.status == 400) {
+                        let refuser = document.createElement("p");
+                        document.getElementById("formulaire").appendChild(refuser);
+                        refuser.textContent = " veuillez remplir tout les champs du formulaire"
+                    }
+                    /*else { 
+                        let refuser = document.createElement("p");
+                        document.getElementById("formulaire").appendChild(refuser);
+                        refuser.textContent = " veuillez remplir tout les champs du formulaire"
+
+                         
+                    }*/
+                        
+                    
                 }
-            })
+                request.open("POST", "http://localhost:3000/api/cameras/order");
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                request.send(JSON.stringify(data));
+                
+               // setTimeout(function(){document.location.href= "../PageHTML/confirmation.html"});
+            });
+            
+        };
+        async function sending() {
+            await postProduits();
         }
-        const data2 ={
-            given_id: {
-                _id : "010120101",
-                name : prenom +" "+ nom
 
-            }
-        }  
-        send(); // lance la function qui lance la requete .. 
-
-        setTimeout(function(){document.location.href= "../PageHTML/confirmation.html"},3000); // A INCORPORER DANS LE FETCH  
-
-        // redirige vers la page au click sur button
-       // envoyerData.addEventListener("click", function() {
-            //setTimeout(function(){window.open("confirmation.html")},3000);  // parfois bloqué par anti-pop-up / ouvre une new page
-             // meilleur solution, n'ouvre pas de popup ! 
-        //}) 
-
-
-        
-        
+        sending();
     }
+    
+    
+     
+     
+    
 }
-// console.log(typeof(products)) // Object
-        /*contact: {    // marche pas
-            firstName: prenom,  
-            lastName: nom,
-            address: adresseNum,
-            city: "paris",
-            email: email
-        }, 
-         product :[]
-         contact.push(products)
-        */
-       // OK a metttre sur derniere page ! 
-        //let recupValeur2 = localStorage.getItem("clientel"); // NE PAS OUBLIER les "" la clé c'est un string tamereputin azerzq rfvlesd 2h pour asdfqesr
-        //let valueurJSON2 = JSON.parse(recupValeur2) // retransformation en JSON
-        //console.log(valueurJSON2)
-
-
-        //send2();
-        /**function getting () {
-            fetch("http://localhost:3000/api/cameras/:_id")
-                .then(function(response){
-                    console.log(JSON.stringify(response))
-                    //let data6 = JSON.stringify(response)
-                    //console.log(data6.order)
-                })
-        }
-        getting();*/
