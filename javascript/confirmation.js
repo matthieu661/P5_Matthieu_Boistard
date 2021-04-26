@@ -33,7 +33,7 @@ window.onload = function () {
 
     // création d'un retour vers page d'acceuil
     let retourPageAcceuil = document.createElement("a");
-    retourPageAcceuil.href = "index.html"
+    retourPageAcceuil.href = "../index.html"
     document.getElementById("TexteConfirmation").appendChild(retourPageAcceuil);
     let containerRetour = document.createElement("div");
     retourPageAcceuil.appendChild(containerRetour);

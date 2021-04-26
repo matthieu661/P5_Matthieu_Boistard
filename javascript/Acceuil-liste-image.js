@@ -6,23 +6,23 @@ window.onload = function () {
 
     let linkPanierAcc = document.createElement('a');
     document.getElementById("header").appendChild(linkPanierAcc);
-    linkPanierAcc.href = "/PageHTML/Panier.html"
+    linkPanierAcc.href = "../PageHTML/Panier.html"
         let panierAcc = document.createElement('div');
         linkPanierAcc.appendChild(panierAcc);
         panierAcc.classList.add("menuAcc");
             let imgAcc = document.createElement('img');
-            imgAcc.src = "/images/Logo/icopanier.svg"
+            imgAcc.src = "../images/Logo/icopanier.svg"
             panierAcc.appendChild(imgAcc);
 
     // image Orinoco TEST 
 
     let imgOrinoco = document.createElement("img");
-    imgOrinoco.src = "/images/Logo/Capture.png";
+    imgOrinoco.src = "../images/Logo/Capture.png";
     document.getElementById("h2title").appendChild(imgOrinoco);
     imgOrinoco.classList.add("imgOrinoco");
 
     
-
+    
 
 
 
@@ -42,8 +42,8 @@ window.onload = function () {
 
                 let aLien = document.createElement('a') // crée un objet "<a></a>" dans le html
                 
-                console.log("Produit.html"+"?"+data[i]._id);
-                aLien.href = "/PageHTML/Produit.html"+"?"+data[i]._id; // ajoute l'attribut "href" a l'objet <a> créé précedemment et le defini.  
+                //console.log("Produit.html"+"?"+data[i]._id);
+                aLien.href = "../PageHTML/Produit.html"+"?id="+data[i]._id; // ajoute l'attribut "href" a l'objet <a> créé précedemment et le defini.  
                                                             // dessus  Lien vers page Html(Produit.html)+ "id" récuperé dans "data" ("?"" pour passer l'id a l'autre page)
                 aLien.classList.add("Liens") // ajoute une classe à l'objet <a>
                 li.appendChild(aLien); // le rajoute au node "li" en tant qu'enfant

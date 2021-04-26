@@ -9,9 +9,10 @@ window.onload = function () {
 
 
 
+
             //recuperer l'id du produit 
-            let IDrecup = window.location.search.substr(1);// on lui enleve le "?"
-            // console.log(IDrecup); // OK
+            let IDrecup = window.location.search.substr(4);// on lui enleve le "?"
+             console.log(IDrecup); // OK
 
             let IDs = []; // Creer un tableau pour acceuillir (lister) tout les "_id" de "dataProduit"
             for (let i = 0; i < dataProduit.length; i++) { // pour chaque objet dans "dataProduit" il va crée une entré dans le Tableau "IDs"
@@ -196,10 +197,10 @@ window.onload = function () {
             // Link vers Panier Avec une Image
             let LinkPaniersJS = document.createElement("a");
             LienPanier.appendChild(LinkPaniersJS);
-            LinkPaniersJS.href = "/PageHTML/Panier.html";                 // LIEN VERS PAGE PANIER                                   
+            LinkPaniersJS.href = "../PageHTML/Panier.html";                 // LIEN VERS PAGE PANIER                                   
             document.getElementById("Panier").appendChild(ContainerPanier);
             let ImagePanier = document.createElement("img");
-            ImagePanier.src = "/images/Logo/PanierOrinoco.png";
+            ImagePanier.src = "../images/Logo/PanierOrinoco.png";
             LinkPaniersJS.appendChild(ImagePanier);
             LinkPaniersJS.classList.add("FlexPanier");
             ContainerPanier.classList.add("FlexPanier");
