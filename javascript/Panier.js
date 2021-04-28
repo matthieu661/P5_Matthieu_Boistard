@@ -1,8 +1,8 @@
 window.onload = function () {
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    document.getElementById("TitrePagePanier").textContent = "Votre Panier"; 
-    document.getElementById("TitrePagePanier").classList.add("h1PagePanier"); 
- 
+    document.getElementById("TitrePagePanier").textContent = "Votre Panier";
+    document.getElementById("TitrePagePanier").classList.add("h1PagePanier");
+
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // recuperation du localStorage   
     recupValeur = localStorage.getItem("Article");
@@ -15,7 +15,7 @@ window.onload = function () {
     })
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // pour chaque itération object dans le tableau
-    for (let i = 0; i < valueurJSON.length; i++) { 
+    for (let i = 0; i < valueurJSON.length; i++) {
         // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // structure :
         // main --> <div CTitrePagePanier> --> <h1> --> <div articlesDuPanier (ajout js)> --> <div imgArtPanier (ajout js)> --> <img (ajout js)>
@@ -23,21 +23,21 @@ window.onload = function () {
         //                                                                                --> <div prixArtPanier (ajout js) --> <p (jaout js)>
         //
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        let articlesDuPanier = document.createElement("div"); 
-        document.getElementById("TitrePagePanier").appendChild(articlesDuPanier);  
-        articlesDuPanier.classList.add("ArticlesPanierContainer"); 
+        let articlesDuPanier = document.createElement("div");
+        document.getElementById("TitrePagePanier").appendChild(articlesDuPanier);
+        articlesDuPanier.classList.add("ArticlesPanierContainer");
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        let imgArtPanier = document.createElement("div"); 
-        articlesDuPanier.appendChild(imgArtPanier); 
-        imgArtPanier.classList.add("ImageArtPanier"); 
+        let imgArtPanier = document.createElement("div");
+        articlesDuPanier.appendChild(imgArtPanier);
+        imgArtPanier.classList.add("ImageArtPanier");
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // recupere l'image et  l'insere 
-        let imgRecupere = document.createElement("img"); 
-        imgRecupere.src = valueurJSON[i].image;  
-        imgArtPanier.appendChild(imgRecupere); 
-        imgRecupere.classList.add("imgRecp") 
+        let imgRecupere = document.createElement("img");
+        imgRecupere.src = valueurJSON[i].image;
+        imgArtPanier.appendChild(imgRecupere);
+        imgRecupere.classList.add("imgRecp")
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        let optionArticlePanier = document.createElement("div"); 
+        let optionArticlePanier = document.createElement("div");
         articlesDuPanier.appendChild(optionArticlePanier);
         optionArticlePanier.classList.add("OptionArtPanier");
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ window.onload = function () {
         optionArticlePanier.appendChild(optionChoisie);
         optionChoisie.classList.add("OptionX");
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        let prixArtPanier = document.createElement("div"); 
+        let prixArtPanier = document.createElement("div");
         articlesDuPanier.appendChild(prixArtPanier);
         prixArtPanier.classList.add("PrixArtPanier");
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,23 +69,23 @@ window.onload = function () {
     //                                                                      --> <div calculPTT (ajout js)>
     // 
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    let prixTotalPanier = document.createElement("div"); 
-    document.getElementById("CTitrePagePanier").appendChild(prixTotalPanier); 
-    prixTotalPanier.classList.add("PrixTTPanier"); 
+    let prixTotalPanier = document.createElement("div");
+    document.getElementById("CTitrePagePanier").appendChild(prixTotalPanier);
+    prixTotalPanier.classList.add("PrixTTPanier");
     // //////////////////////////////////////////////////////////////////////////////////////
-    let textePTT = document.createElement("p"); 
-    prixTotalPanier.appendChild(textePTT); 
-    textePTT.classList.add("TextePTT"); 
-    textePTT.textContent = "Total de votre Panier"; 
+    let textePTT = document.createElement("p");
+    prixTotalPanier.appendChild(textePTT);
+    textePTT.classList.add("TextePTT");
+    textePTT.textContent = "Total de votre Panier";
     // //////////////////////////////////////////////////////////////////////////////////////
     // div calcul du prixTT                                            
-    let calculPTT = document.createElement("div"); 
-    prixTotalPanier.appendChild(calculPTT); 
+    let calculPTT = document.createElement("div");
+    prixTotalPanier.appendChild(calculPTT);
     let TT = 0;
     for (let i = 0; i < valueurJSON.length; i++) {
         let calculduTotal = valueurJSON[i].prix;
         TT += calculduTotal;
-        calculPTT.textContent = TT + "¥";    
+        calculPTT.textContent = TT + "¥";
     }
     calculPTT.classList.add("calculPTotal");
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,9 +101,8 @@ window.onload = function () {
     }
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // formulaire affiché  : 
-    // 
     // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     let envoyerData = document.getElementById("Envoie");
     envoyerData.addEventListener("click", recupETenvoie);
 
@@ -139,7 +138,7 @@ window.onload = function () {
     //                              
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // au click recup les donnée fu form, les envoie dans une variable et les envoie au serveur
-    function recupETenvoie() {   
+    function recupETenvoie() {
         let prenom = document.getElementById("VotrePrenom").value;
         let nom = document.getElementById("VotreNom").value;
         let email = document.getElementById("email").value;
@@ -149,7 +148,7 @@ window.onload = function () {
         let dateExp = document.getElementById("DateExp").value;
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // declare le Tableau demandé " products"
-        const products = []   
+        const products = []
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for (let i = 0; i < valueurJSON.length; i++) { // pour chaque Objets dans le tableau du localstorage                                                
             let _id = "";                            //  recupe l'id ET le push dans le tableau Product
@@ -159,7 +158,7 @@ window.onload = function () {
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const data = {
             contact: {
-                firstName: prenom,  
+                firstName: prenom,
                 lastName: nom,
                 address: adresseNum,
                 city: city,
@@ -167,14 +166,14 @@ window.onload = function () {
             },
             products
         }
-        // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // constantes pour les regex 
         const regexPrenom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;   // minetMAJ--longueur:2-101--nom composé ( - ) ou "espace" , maj ou min pour les accents voir 
         const regexNom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;
         const regexEmail = /^([a-zA-Z0-9\-\_\.])+@+([a-zA-Z0-9]{3,15})+.+([a-zA-Z]{2,3})$/;
         const regexAdresse = /^([1-9]*)+([\ ]?)+([a-zA-Z\ ]{1,10})+([\ ]?)+([a-zA-Z\'\ \u00C0-\u00FF]{2,60})$/;
         const regexVille = /^([a-zA-Z]{2,59})$/;
-        // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         postProduits = () => {
             return new Promise((ABC) => {
                 let request = new XMLHttpRequest();
@@ -239,7 +238,7 @@ window.onload = function () {
                                 document.getElementById("formulaire").appendChild(refuser);
                                 refuser.textContent = " veuillez saisir votre Prenom "
                                 console.log("dont work")
-                            }                          
+                            }
                         }
                         else {
                             let refuser = document.createElement("p");

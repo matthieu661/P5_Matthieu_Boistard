@@ -12,7 +12,7 @@ window.onload = function () {
     console.log(commandPTT)
     // ///////////////////////////////////////////////////////////////////////////////////////
     // structure  : 
-    //  main --> <h1> --> <p (ajout ici nom + ID + PTT)>
+    //  main --> <h1> --> <p (ajout //ici nom + ID + PTT)>
     //                --> <div conteneur remerciement (ajout)> --> <p (ajout)> 
     //                --> <a href (ajout)> --> <div conteneur lien (ajout)> --> <p (ajout)> 
     // ////////////////////////////////////////////////////////////////////////////////////////            
@@ -20,7 +20,7 @@ window.onload = function () {
     document.getElementById("TexteConfirmation").appendChild(numeroCommande);
     numeroCommande.innerHTML = nomClient + "<br> " + " votre bon de commande est le :" + "<br> " + numeroDeCommande + "" + "<br> le montant Total de votre commande est de : " + " " + commandPTT + " ¥ "; // = "nomClient"... = variable pas encore defini
     numeroCommande.classList.add("BOX2"); // ajout class pour scss
-// ////////////////////////////////////////////////////////////////////////
+    // ////////////////////////////////////////////////////////////////////////
     // Création d'un conteneur de recapitulation - enfant du <h1>
     let containerConfirmation = document.createElement("div");
     document.getElementById("TexteConfirmation").appendChild(containerConfirmation);

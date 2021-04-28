@@ -128,7 +128,7 @@ window.onload = function () {
         //
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                
         // fonction pour retourner la valeur du panier, si localstorage vide return [], si pas vide elle recupere le tableau "Article" et le transforme en JSON return le JSON.
-        function recupChoix() {  
+        function recupChoix() {
             function TEST() {
                 let Varii = localStorage.Article
                 if (Varii === undefined) {
@@ -158,7 +158,7 @@ window.onload = function () {
             };
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // pareil que TEST, utile pour le count du nombre d'article dans le panier .
-            function recupZE() {  
+            function recupZE() {
                 let Varii2 = localStorage.Article
                 if (Varii2 === undefined) {
                     return 1;
