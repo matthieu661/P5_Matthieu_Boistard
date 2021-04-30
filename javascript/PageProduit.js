@@ -36,13 +36,14 @@ window.onload = function () {
         let x = IDs.indexOf(IDrecup); // crée une variable qui va, grace à "indexOF" comparé l'Id recupéré via IDrecup a ceux présent dans le tableau Ids
 
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // ajout element aux balises fixe Html / STRUCTURE : 
+        // ajout élements aux balises fixes Html / STRUCTURE : 
         // <main> --> <h1> (ajout texte)
         //        --> <div container Produit>     --> <div image produit>            --> <img (ajout img)>
         //                                        --> <div container description>    --> <p (ajout <p>)>
         //                                        --> <div container Form >          --> <select>            --> <option (ajout des options)>
         //                                        --> <div Prix et button>           --> <div prix>          --> <p (ajout <p>)
-        //                                                                           --> <div button>        --> <btn (ajout button)>   
+        //                                                                           --> <div button>        --> <btn (ajout button)> 
+        //  
         //        --> <div panier>                --> <div rapide (ajout div)>       --> <h2 (ajout h2)>
         //                                        --> <div flex (ajout div)>         --> <div (ajout div)>   --> <p (ajout p)>
         //                                        --> <div lien (ajout div)>         --> <a href (ajout a)>
@@ -83,8 +84,8 @@ window.onload = function () {
         BtnJs.textContent = BtnTexteJs;
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         let prixProduit = document.createElement("p");
-        let Valeur = dataProduit[x].price
-        prixProduit.classList.add("PrixduProduitJs")
+        let Valeur = dataProduit[x].price;
+        prixProduit.classList.add("PrixduProduitJs");
         prixProduit.textContent = Valeur + " ¥";
         document.getElementById("PrixProduit").appendChild(prixProduit);
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -113,6 +114,7 @@ window.onload = function () {
         LinkPaniersJS.appendChild(ImagePanier);
         LinkPaniersJS.classList.add("FlexPanier");
         ContainerPanier.classList.add("FlexPanier");
+        // /////////////////////////////////////    IIIIICCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCIIIIIIII  <-----------------------------
 
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //
@@ -138,14 +140,16 @@ window.onload = function () {
                     return JSON.parse(localStorage.Article);
                 }
             }
+
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // ont definis les variable pour exploiter plus facilement le JSON
             let DataStorage = TEST(); // definit le tableau qui reçoit les Artilces ajoutés au panier grace a la function TEST dessus
-            let idChoix = IDrecup // crée la variable idchoix via l'id recuperé plus haut (pas indispensable ont peut use direct IDrecup) 
+
+            let idChoix = IDrecup // crée la variable idchoix via l'id recuperé plus haut (pas indispensable ont peut use direct IDrecup) V
             let nameChoix = dataProduit[x].name; // ont recupére le nom via le tableau crée plus haut 
             let PrixDuChoix = dataProduit[x].price; // recup price
             let ImgChoix = dataProduit[x].imageUrl; // recup lien img
-            let optionChoix = document.getElementById("Options"); // vaiable optionChoix permet de se "locker" sur le form select
+            let optionChoix = document.getElementById("Options"); // vaiable optionChoix permet de se "locker" sur le form select V
             let valeurOption = optionChoix.options[optionChoix.selectedIndex].text; // ont crée une variable pour recupérer l'option via la fonction   "elementLOCKER".selectindex+ .text (pour retourner l'interieur des balises option du select)
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // ont crée un Objet qui va stocker les variable récup.
@@ -166,13 +170,15 @@ window.onload = function () {
                 else {
                     let Varii3 = JSON.parse(Varii2)
                     for (let i = 0; i < Varii3.length; i++);
-                    console.log(Varii3.length)
                     let number = Varii3.length;
                     number++;
                     return number
                 }
             }
             let ZE = recupZE();
+
+
+
             textCountAchat.textContent = "Vide"
             function ZEchange() {  // la fonction increment un compteur lors du click
                 if (ZE == 1) {
@@ -186,7 +192,6 @@ window.onload = function () {
             DataStorage.push(ArticlePourLeLocalStorage);
             let Tableau = JSON.stringify(DataStorage);
             localStorage.Article = Tableau;
-
         }
         BtnJs.addEventListener("click", recupChoix);
 

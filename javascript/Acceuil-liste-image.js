@@ -1,6 +1,3 @@
-
-
-
 window.onload = function () {
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Lien vers Panier 
@@ -21,17 +18,19 @@ window.onload = function () {
     imgOrinoco.src = "../images/Logo/Capture.png";
     document.getElementById("h2title").appendChild(imgOrinoco);
     imgOrinoco.classList.add("imgOrinoco");
-    console.log(document.getElementById("header").nodeListe.item(7));
-
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // fonction GET avec promise recupe donnés serveur
     getProduits = () => {
         return new Promise((ABC) => {
             let request = new XMLHttpRequest();
             request.onreadystatechange = function () {
+          
                 if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                     ABC(JSON.parse(this.responseText));
+                    
                 }
+                    
+                     
             }
             request.open("GET", "http://localhost:3000/api/cameras");
             request.send();
@@ -98,13 +97,16 @@ window.onload = function () {
             bulle.innerHTML = "A partir </br>\t  de :";
             Prix.appendChild(bulle);
             // /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            document.getElementById("Container-listeJS").appendChild(li);
+            document.getElementById("Container_listeJS").appendChild(li);
             // /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             //<div Container-listeJS --> <li> --> <a href>  --> <div conteneur image> --> <img>
             //                                              --> <div conteneur info>  --> <div Prix> --> <p> --> <div bulle>
             //                                                                        --> <div nom> --> <p>
             // /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         };
+
+
     };
     allProduits(); // appel de la function 
 };

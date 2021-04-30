@@ -85,9 +85,12 @@ window.onload = function () {
     for (let i = 0; i < valueurJSON.length; i++) {
         let calculduTotal = valueurJSON[i].prix;
         TT += calculduTotal;
-        calculPTT.textContent = TT + "¥";
+        calculPTT.textContent = TT + "¥";    
     }
     calculPTT.classList.add("calculPTotal");
+
+
+
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // PARTIE Formulaire : formulaire ecris en html (display = hidden)
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,13 +102,12 @@ window.onload = function () {
         if (affichage == "none") { document.getElementById("formeHiden").style.display = "block"; }
         else { document.getElementById("formeHiden").style.display = "none" }
     }
+    
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // formulaire affiché  : 
     // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     let envoyerData = document.getElementById("Envoie");
     envoyerData.addEventListener("click", recupETenvoie);
-
     // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // button event : au click appel recupeETenvoie()
     //          recupeETenvoie() --> (1) creer des variables qui recuperer la .value des champs du formulaire 
@@ -144,8 +146,9 @@ window.onload = function () {
         let email = document.getElementById("email").value;
         let adresseNum = document.getElementById("adresseNum").value;
         let city = document.getElementById("city").value;
-        let CB = document.getElementById("CB").value;
-        let dateExp = document.getElementById("DateExp").value;
+        let CB = document.getElementById("CB").value; // pas exploit
+        let dateExp = document.getElementById("DateExp").value; // pas exploit
+
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // declare le Tableau demandé " products"
         const products = []
@@ -155,6 +158,10 @@ window.onload = function () {
             _id = valueurJSON[i].id;
             products.push(_id)
         }
+        if ( typeof products === "object"){console.log("objet tableau ; OK")
+            if ( products.length === valueurJSON.length){console.log(' nombre ID : OK')}
+    }else{console.log(" products is not []")}
+
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const data = {
             contact: {
@@ -168,7 +175,7 @@ window.onload = function () {
         }
         // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // constantes pour les regex 
-        const regexPrenom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;   // minetMAJ--longueur:2-101--nom composé ( - ) ou "espace" , maj ou min pour les accents voir 
+        const regexPrenom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;   // minetMAJ--longueur:2-101--nom composé ( - ) ou "espace" , maj ou min pour les accents  
         const regexNom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;
         const regexEmail = /^([a-zA-Z0-9\-\_\.])+@+([a-zA-Z0-9]{3,15})+.+([a-zA-Z]{2,3})$/;
         const regexAdresse = /^([1-9]*)+([\ ]?)+([a-zA-Z\ ]{1,10})+([\ ]?)+([a-zA-Z\'\ \u00C0-\u00FF]{2,60})$/;
@@ -180,73 +187,9 @@ window.onload = function () {
                 request.onreadystatechange = function () {
                     if (this.readyState == XMLHttpRequest.DONE && this.status == 201) {
                         ABC(JSON.parse(this.responseText));
-                        let reponse = this.responseText
-                        // //////////////////////////////////////////////////////////////
-                        let testNom = document.getElementById("VotreNom").value;
-                        let resNom = regexPrenom.test(testNom)
-                        if (resNom == true) {
-                            document.getElementById("VotreNom").style.backgroundColor = "#00ff0080";
-                            let testPrenom = document.getElementById("VotrePrenom").value;
-                            let resPrenom = regexNom.test(testPrenom);
-                            // //////////////////////////////////////////////////////////////
-                            if (resPrenom == true) {
-                                document.getElementById("VotrePrenom").style.backgroundColor = "#00ff0080";
-                                let testEmail = document.getElementById("email").value;
-                                let resEmail = regexEmail.test(testEmail);
-                                // //////////////////////////////////////////////////////////////
-                                if (resEmail == true) {
-                                    document.getElementById("email").style.backgroundColor = "#00ff0080";
-                                    let testAddresse = document.getElementById("adresseNum").value
-                                    let resAddresse = regexAdresse.test(testAddresse);
-                                    // //////////////////////////////////////////////////////////////
-                                    if (resAddresse == true) {
-                                        document.getElementById("adresseNum").style.backgroundColor = "#00ff0080";
-                                        let testVille = document.getElementById("city").value;
-                                        let resVille = regexVille.test(testVille);
-                                        // //////////////////////////////////////////////////////////////
-                                        if (resVille == true) {
-                                            document.getElementById("city").style.backgroundColor = "#00ff0080";
-                                            // //////////////////////////////////////////////////////////////
-                                            // //////////////////////////////////////////////////////////////
-                                            let recIdclient = (JSON.parse(reponse));
-                                            idClient = recIdclient.orderId
-                                            setTimeout(function () { document.location.href = "../PageHTML/confirmation.html" + "?id=" + idClient + "?name=" + testPrenom + "_" + testNom }, 3000);
-                                            let retourTT = JSON.stringify(TT);
-                                            localStorage.Prix = retourTT
-                                            // //////////////////////////////////////////////////////////////
-                                            // //////////////////////////////////////////////////////////////
-                                        } else {
-                                            let refuser = document.createElement("p");
-                                            document.getElementById("formulaire").appendChild(refuser);
-                                            refuser.textContent = " veuillez saisir votre Ville ( ex : Dublin ) "
-                                            console.log("dont work")
-                                        }
-                                    } else {
-                                        let refuser = document.createElement("p");
-                                        document.getElementById("formulaire").appendChild(refuser);
-                                        refuser.textContent = " veuillez saisir votre adresse ( ex : 13 rue du moulin chinois) "
-                                        console.log("dont work")
-                                    }
-                                } else {
-                                    let refuser = document.createElement("p");
-                                    document.getElementById("formulaire").appendChild(refuser);
-                                    refuser.textContent = " veuillez saisir votre Email ( ex : xxxx@aaa.dd) "
-                                    console.log("dont work")
-                                }
-                            } else {
-                                let refuser = document.createElement("p");
-                                document.getElementById("formulaire").appendChild(refuser);
-                                refuser.textContent = " veuillez saisir votre Prenom "
-                                console.log("dont work")
-                            }
-                        }
-                        else {
-                            let refuser = document.createElement("p");
-                            document.getElementById("formulaire").appendChild(refuser);
-                            refuser.textContent = " veuillez saisir votre Nom"
-                            console.log("dont work")
-                        }
-                        // //////////////////////////////////////////////////////////////
+                        let reponse = this.responseText // variable "reponse" a use plus tard
+                        return reponse
+                        
                     } if (this.readyState == XMLHttpRequest.DONE && this.status == 400) {
                         let refuser = document.createElement("p");
                         document.getElementById("formulaire").appendChild(refuser);
@@ -259,7 +202,79 @@ window.onload = function () {
             });
         };
         async function sending() {
-            await postProduits();
+             reponse = await postProduits();
+            // //////////////////////////////////////////////////////////////
+            let testNom = document.getElementById("VotreNom").value;
+            let resNom = regexPrenom.test(testNom)
+            if (resNom == true) {
+                document.getElementById("VotreNom").style.backgroundColor = "#00ff0080";
+                let testPrenom = document.getElementById("VotrePrenom").value;
+                let resPrenom = regexNom.test(testPrenom);
+                // //////////////////////////////////////////////////////////////
+                if (resPrenom == true) {
+                    document.getElementById("VotrePrenom").style.backgroundColor = "#00ff0080";
+                    let testEmail = document.getElementById("email").value;
+                    let resEmail = regexEmail.test(testEmail);
+                    // //////////////////////////////////////////////////////////////
+                    if (resEmail == true) {
+                        document.getElementById("email").style.backgroundColor = "#00ff0080";
+                        let testAddresse = document.getElementById("adresseNum").value
+                        let resAddresse = regexAdresse.test(testAddresse);
+                        // //////////////////////////////////////////////////////////////
+                        if (resAddresse == true) {
+                            document.getElementById("adresseNum").style.backgroundColor = "#00ff0080";
+                            let testVille = document.getElementById("city").value;
+                            let resVille = regexVille.test(testVille);
+                            // //////////////////////////////////////////////////////////////
+                            if (resVille == true) {
+                                document.getElementById("city").style.backgroundColor = "#00ff0080";
+                                // //////////////////////////////////////////////////////////////
+                                // //////////////////////////////////////////////////////////////
+                                let recIdclient = reponse;
+                                idClient = recIdclient.orderId
+                                setTimeout(function () { document.location.href = "../PageHTML/confirmation.html" + "?id=" + idClient + "?name=" + testPrenom + "_" + testNom }, 3000);
+                                let retourTT = JSON.stringify(TT);
+                                localStorage.Prix = retourTT
+                                // //////////////////////////////////////////////////////////////
+                                // //////////////////////////////////////////////////////////////
+                            } else {
+                                let refuser = document.createElement("p");
+                                document.getElementById("formulaire").appendChild(refuser);
+                                refuser.textContent = " veuillez saisir votre Ville ( ex : Dublin ) "
+                                console.log("dont work")
+                                document.getElementById("city").style.backgroundColor = "#912020";
+                            }
+                        } else {
+                            let refuser = document.createElement("p");
+                            document.getElementById("formulaire").appendChild(refuser);
+                            refuser.textContent = " veuillez saisir votre adresse ( ex : 13 rue du moulin chinois) "
+                            console.log("dont work")
+                            document.getElementById("adressNum").style.backgroundColor = "#912020";
+                        }
+                    } else {
+                        let refuser = document.createElement("p");
+                        document.getElementById("formulaire").appendChild(refuser);
+                        refuser.textContent = " veuillez saisir votre Email ( ex : xxxx@aaa.dd) "
+                        console.log("dont work")
+                        document.getElementById("email").style.backgroundColor = "#912020";
+                    }
+                } else {
+                    let refuser = document.createElement("p");
+                    document.getElementById("formulaire").appendChild(refuser);
+                    refuser.textContent = " veuillez saisir votre Prenom "
+                    console.log("dont work")
+                    document.getElementById("VotrePrenom").style.backgroundColor = "#912020";
+                }
+            }
+            else {
+                let refuser = document.createElement("p");
+                document.getElementById("formulaire").appendChild(refuser);
+                refuser.textContent = " veuillez saisir votre Nom"
+                console.log("dont work")
+                document.getElementById("VotreNom").style.backgroundColor = "#912020";
+            }
+            // //////////////////////////////////////////////////////////////
+            
         }
         sending();
     }
