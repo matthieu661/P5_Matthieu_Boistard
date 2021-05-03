@@ -1,3 +1,4 @@
+
 @mixin tablette {
     @media (min-width: 651px) and(max-width : 1150px) {
         @content;
@@ -58,23 +59,25 @@ header {
         }
     }
 }
-@mixin tablette {
+@include tablette {
     header {
-        height: 300px;
+        height: 278px;
         .flex-container {
             height: 60%;
             img {
-                height: 300px;
+                
+                max-height: 255px;
             }
         }
     }
 }
-@mixin desktop {
+@include desktop {
     header {
         height: 320px;
         .flex-container {
             height: 60%;
             img {
+                max-width: 780px;
                 height: 300px;
             }
         }

@@ -45,6 +45,29 @@ header .flex-container img {
   height: auto;
 }
 
+@media (min-width: 651px) and (max-width: 1150px) {
+  header {
+    height: 278px;
+  }
+  header .flex-container {
+    height: 60%;
+  }
+  header .flex-container img {
+    max-height: 255px;
+  }
+}
+@media (min-width: 1151px) {
+  header {
+    height: 320px;
+  }
+  header .flex-container {
+    height: 60%;
+  }
+  header .flex-container img {
+    max-width: 780px;
+    height: 300px;
+  }
+}
 .titre-header {
   margin-bottom: 15px;
 }

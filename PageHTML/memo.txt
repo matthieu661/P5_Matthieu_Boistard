@@ -1,4 +1,0 @@
-#f4e9f2 =  background color = rose-pale
-
-font-family: 'Bad Script', cursive;          titre
-font-family: 'Montserrat', sans-serif;          paragraphes

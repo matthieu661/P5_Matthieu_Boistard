@@ -146,8 +146,7 @@ window.onload = function () {
         let email = document.getElementById("email").value;
         let adresseNum = document.getElementById("adresseNum").value;
         let city = document.getElementById("city").value;
-        let CB = document.getElementById("CB").value; // pas exploit
-        let dateExp = document.getElementById("DateExp").value; // pas exploit
+        
 
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // declare le Tableau demandé " products"
