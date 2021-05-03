@@ -85,7 +85,7 @@ window.onload = function () {
     for (let i = 0; i < valueurJSON.length; i++) {
         let calculduTotal = valueurJSON[i].prix;
         TT += calculduTotal;
-        calculPTT.textContent = TT + "¥";    
+        calculPTT.textContent = TT + "¥";
     }
     calculPTT.classList.add("calculPTotal");
 
@@ -102,7 +102,7 @@ window.onload = function () {
         if (affichage == "none") { document.getElementById("formeHiden").style.display = "block"; }
         else { document.getElementById("formeHiden").style.display = "none" }
     }
-    
+
     // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // formulaire affiché  : 
     // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,10 +158,6 @@ window.onload = function () {
             _id = valueurJSON[i].id;
             products.push(_id)
         }
-        if ( typeof products === "object"){console.log("objet tableau ; OK")
-            if ( products.length === valueurJSON.length){console.log(' nombre ID : OK')}
-    }else{console.log(" products is not []")}
-
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const data = {
             contact: {
@@ -189,7 +185,7 @@ window.onload = function () {
                         ABC(JSON.parse(this.responseText));
                         let reponse = this.responseText // variable "reponse" a use plus tard
                         return reponse
-                        
+
                     } if (this.readyState == XMLHttpRequest.DONE && this.status == 400) {
                         let refuser = document.createElement("p");
                         document.getElementById("formulaire").appendChild(refuser);
@@ -202,7 +198,7 @@ window.onload = function () {
             });
         };
         async function sending() {
-             reponse = await postProduits();
+            reponse = await postProduits();
             // //////////////////////////////////////////////////////////////
             let testNom = document.getElementById("VotreNom").value;
             let resNom = regexPrenom.test(testNom)
@@ -274,7 +270,7 @@ window.onload = function () {
                 document.getElementById("VotreNom").style.backgroundColor = "#912020";
             }
             // //////////////////////////////////////////////////////////////
-            
+
         }
         sending();
     }

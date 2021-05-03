@@ -138,7 +138,7 @@
     // recupéré ID via Url L29-41                       TU-5
     // ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // test unitaire (5)
-    //  1 -tester la longueur de la chaine recuperer via window.location, si = 24 : 
+    //  1 -tester la longueur de la chaine recuperé via window.location, si = 24 : 
     //  2 -     tester si IDS a bien recuperer des _id de dataProduit, si OUI : 
     //  3 -         tester si IDs a bien recuperé toutes les Id, si OUI :
     //  4 -             tester si toutes les ID recupérées dans IDs sont les meme que celle de dataProduit, si OUI :
@@ -206,7 +206,7 @@
                     console.log("Nombre de caractere dans la chaine : OK") 
                     if (document.getElementById("TitreProduit").childNodes.item(0).textContent === dataProduit[x.name]){
                         console.log("nom produit : OK")
-                        }else{console.log("error : Valeur du titre)}   
+                        }else{console.log("error : Valeur du titre")}   
                 }else { "error : length chaine <H1> "}
             }else { "error : type different "}
         } else (console.log("error : balise <h1>"))
@@ -318,9 +318,75 @@
 //  /////////////////////// PAGE PANIER ////////////////////////////////////////////////////////////////////////////
 //  
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Présence d'un texte dans le <H1> et valeur du texte
+// texte dans le <H1> et valeur du texte        L3-4    TU-11
+// 1 - verififer si il y'a un node text attaché a <h1> :
+// 2 - verififer la valeur du nodetext :
+// 3 - verifier que le <h1> a une classe h1PagePanier  
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // code ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-if (document.getElementById("TitrePagePanier").childNodes.item(0).nodeType === 3){
- if (document.getElementById("TitrePagePanier").childNodes.item(0).nodeValue === "Votre Panier"){console.log(" ok")}else{console.log("error")}
-}else{console.log("error : nodeText non present")}
+    if (document.getElementById("TitrePagePanier").childNodes.item(0).nodeType === 3){
+        if (document.getElementById("TitrePagePanier").childNodes.item(0).nodeValue === "Votre Panier"){
+            console.log(" ok")
+            if (document.getElementById("TitrePagePanier").classList.contains("h1PagePanier") === true){
+                console.log("classe : ok")
+                }else{console.log("error : classe <h1>")}
+            }else{console.log("error")}
+    }else{console.log("error : nodeText non present")}
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  recuperation du localStorage                 L7-9  TU-12
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// verifier que l'on recupere un JSON :
+// verififer que le JSON n'est pas vide :
+// code   ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    if (typeof valueurJSON === "object") {
+        console.log("recuperation JSON : OK")
+        if (valueurJSON.length > 0) { console.log("JSON.lengt > 0 : OK") } else { console.log("error : JSON vide") }
+    } else { console.log("error : recuperation JSON") }
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //  TEST SUPPRESSION localStorage                   L15-19 TU-13
+    // ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // au click doit effacer le localStorage
+// code ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+ if (localStorage.length === 0){console.log("suppression localStorage : OK")}else{console.log("error : non suppression local")} 
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  création du bon nombre de <div>             L20-63  TU-14
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Pareil que TU-2 et TU-3
+    // ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// création element + calcul du prix TT         L76-94  TU-15
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Pour la création d'element voir TU anterieur:
+// ...
+//      - doit retourner le total des sommes des articles selectionnés et l'afficher dans la <div calculPTT>
+//      (incremente une variable avec une autre variable pour obtenir le PTT)
+//   
+// tester si la variable calculduTotal est de type number
+//      tester si la valeur de TT + calculduTotal === TT a chaque fin d' iteration
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// code ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (typeof calculduTotal === "number") {
+            console.log(" Number : OK")
+            if ((TT + calculduTotal) === TT) { console.log("I++ : OK") } else { "error : no incrementation" }
+        } else { console.log("error : is not Number") }
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// afficher le formulaire                       L102-109  TU-16
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+    // doit afficher le formulaire au click sur btn "Poursuivr...."
+    //  test visuel + test propriété "display"
+// code //////////////////////////////////////////////////////////////////////////////////////////////////////////     
+ if(document.getElementById("formeHiden").style.display === "block"){console.log("affichage : OK")}else{console.log("error : display none")}
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// fonction recupeETenvoie                      L143-275  TU-17
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // doit creer 5 variables contant de valeur "string" (regex control)
+    // doit créer un tableau product contenant les id de tout les produit dans le panier
+    //      tester la le typeof product
+    //          tester la product.length et la comparer au localstorage(=panier)
+    // doit creer un JSON 
+    //              
+// code //////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (typeof products === "object") {
+            console.log("objet tableau ; OK")
+            if (products.length === valueurJSON.length) { console.log(' nombre ID : OK') }
+        } else { console.log(" products is not []") }

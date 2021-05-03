@@ -28,13 +28,13 @@ window.onload = function () {
 
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //recuperer l'id du produit 
-        let IDrecup = window.location.search.substr(4);// enleve le "?id="
-        let IDs = []; // Creer un tableau pour acceuillir (lister) tout les "_id" de "dataProduit"
-        for (let i = 0; i < dataProduit.length; i++) { // pour chaque objet dans "dataProduit" il va crée une entré dans le Tableau "IDs"
-            IDs.push(dataProduit[i]._id); // il push l'entrée en crée un INDICE et une valeur.
+        let IDrecup = window.location.search.substr(4);
+        let IDs = []; 
+        for (let i = 0; i < dataProduit.length; i++) { 
+            IDs.push(dataProduit[i]._id);  
         }
-        let x = IDs.indexOf(IDrecup); // crée une variable qui va, grace à "indexOF" comparé l'Id recupéré via IDrecup a ceux présent dans le tableau Ids
-
+        let x = IDs.indexOf(IDrecup); 
+        
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ajout élements aux balises fixes Html / STRUCTURE : 
         // <main> --> <h1> (ajout texte)
@@ -143,14 +143,13 @@ window.onload = function () {
 
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // ont definis les variable pour exploiter plus facilement le JSON
-            let DataStorage = TEST(); // definit le tableau qui reçoit les Artilces ajoutés au panier grace a la function TEST dessus
-
-            let idChoix = IDrecup // crée la variable idchoix via l'id recuperé plus haut (pas indispensable ont peut use direct IDrecup) V
-            let nameChoix = dataProduit[x].name; // ont recupére le nom via le tableau crée plus haut 
-            let PrixDuChoix = dataProduit[x].price; // recup price
-            let ImgChoix = dataProduit[x].imageUrl; // recup lien img
-            let optionChoix = document.getElementById("Options"); // vaiable optionChoix permet de se "locker" sur le form select V
-            let valeurOption = optionChoix.options[optionChoix.selectedIndex].text; // ont crée une variable pour recupérer l'option via la fonction   "elementLOCKER".selectindex+ .text (pour retourner l'interieur des balises option du select)
+            let DataStorage = TEST(); 
+            let idChoix = IDrecup 
+            let nameChoix = dataProduit[x].name; 
+            let PrixDuChoix = dataProduit[x].price; 
+            let ImgChoix = dataProduit[x].imageUrl; 
+            let optionChoix = document.getElementById("Options"); 
+            let valeurOption = optionChoix.options[optionChoix.selectedIndex].text; 
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // ont crée un Objet qui va stocker les variable récup.
             let ArticlePourLeLocalStorage = {
@@ -196,10 +195,11 @@ window.onload = function () {
         BtnJs.addEventListener("click", recupChoix);
 
 
-
+    
 
     }
     allProduits()
+
 
 }
 

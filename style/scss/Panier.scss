@@ -1,3 +1,21 @@
+@mixin tablette {
+    @media (min-width: 651px) and(max-width : 1150px) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: 1151px) {
+        @content;
+    }
+}
+@mixin smartphone {
+    @media (max-width: 650px) {
+        @content;
+    }
+}
+
+
+
 @keyframes hide {
     0% {
         z-index: 3;
