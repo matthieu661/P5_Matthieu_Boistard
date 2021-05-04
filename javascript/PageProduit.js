@@ -29,12 +29,12 @@ window.onload = function () {
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //recuperer l'id du produit 
         let IDrecup = window.location.search.substr(4);
-        let IDs = []; 
-        for (let i = 0; i < dataProduit.length; i++) { 
-            IDs.push(dataProduit[i]._id);  
+        let IDs = [];
+        for (let i = 0; i < dataProduit.length; i++) {
+            IDs.push(dataProduit[i]._id);
         }
-        let x = IDs.indexOf(IDrecup); 
-        
+        let x = IDs.indexOf(IDrecup);
+
         // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ajout élements aux balises fixes Html / STRUCTURE : 
         // <main> --> <h1> (ajout texte)
@@ -143,13 +143,13 @@ window.onload = function () {
 
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // ont definis les variable pour exploiter plus facilement le JSON
-            let DataStorage = TEST(); 
-            let idChoix = IDrecup 
-            let nameChoix = dataProduit[x].name; 
-            let PrixDuChoix = dataProduit[x].price; 
-            let ImgChoix = dataProduit[x].imageUrl; 
-            let optionChoix = document.getElementById("Options"); 
-            let valeurOption = optionChoix.options[optionChoix.selectedIndex].text; 
+            let DataStorage = TEST();
+            let idChoix = IDrecup;
+            let nameChoix = dataProduit[x].name;
+            let PrixDuChoix = dataProduit[x].price;
+            let ImgChoix = dataProduit[x].imageUrl;
+            let optionChoix = document.getElementById("Options");
+            let valeurOption = optionChoix.options[optionChoix.selectedIndex].text;
             // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // ont crée un Objet qui va stocker les variable récup.
             let ArticlePourLeLocalStorage = {
@@ -195,7 +195,7 @@ window.onload = function () {
         BtnJs.addEventListener("click", recupChoix);
 
 
-    
+
 
     }
     allProduits()
