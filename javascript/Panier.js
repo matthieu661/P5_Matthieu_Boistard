@@ -172,7 +172,7 @@ window.onload = function () {
         // constantes pour les regex 
         const regexPrenom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;   // minetMAJ--longueur:2-101--nom composé ( - ) ou "espace" , maj ou min pour les accents  
         const regexNom = /^([a-zA-Z\'\ \u00C0-\u00FF]{2,101})+$/;
-        const regexEmail = /^([a-zA-Z0-9\-\_\.])+@+([a-zA-Z0-9]{3,15})+.+([a-zA-Z]{2,3})$/;
+        const regexEmail = /^([a-zA-Z0-9\-\_\.])+\@+([a-zA-Z0-9]{3,15})+\.+([a-zA-Z]{2,3})$/;
         const regexAdresse = /^([1-9]*)+([\ ]?)+([a-zA-Z\ ]{1,10})+([\ ]?)+([a-zA-Z\'\ \u00C0-\u00FF]{2,60})$/;
         const regexVille = /^([a-zA-Z]{2,59})$/;
         // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
